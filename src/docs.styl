@@ -1,2 +1,59 @@
-.test
-  border red
+@import 'nib'
+
+.docs  
+  width: 960px 
+  margin auto
+
+
+.example
+  test()
+  
+  &__unit
+    width 150px
+    background-color #ddd
+    border: #565656
+    text-align center
+
+
+
+  &--align  &__list
+    border: #565656
+    height 300px
+    padding 10px
+    
+  &--align  &__unit
+    min-height 150px
+    margin: 10px
+
+
+
+  &--dir  &__list
+    border: #565656
+    min-height 300px
+    padding 10px
+    
+  &--dir  &__unit
+    height 150px
+    margin: 10px
+    
+
+
+  &--gap  &__list
+    height 300px
+    margin-bottom 10px
+
+  &--gap  &__list
+    height 50px
+
+    
+    
+  &--grid  &__unit
+    height 50px
+    margin-bottom 20px
+
+
+  /*-------------------------------------
+    Rewrite bootstrap classes
+  --------------------------------------*/
+  .jumbotron
+    text-align: center

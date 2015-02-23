@@ -1,2 +1,182 @@
 <!DOCTYPE html><!--[if IE 8]> <html class="ie ie8" lang="en"> <![endif]-->
-<!--[if IE 9]> <html class="ie ie9" lang="en"> <![endif]--><html lang="en" class="no-js"><head><title>Flex Tools Docs</title><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script><link href="../dist/flex-tools.css" rel="stylesheet"><link href="docs.css" rel="stylesheet"></head><body itemscope itemtype="http://schema.org/WebPage"><h1>Flex Tools</h1><p>Set of flexbox based layout helpers.</p><script src="assets/js/yonkers-landing-libs.js"></script><script src="assets/js/yonkers-landing-scripts.js"></script><!-- script(src='assets/js/yonkers-landing-libs.min.js')--><!-- script(src='assets/js/yonkers-landing-scripts.min.js')--></body></html>
+<!--[if IE 9]> <html class="ie ie9" lang="en"> <![endif]-->
+<html lang="en" class="no-js">
+  <head>
+    <title>Flex Tools Docs</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="flex-tools.css" rel="stylesheet">
+    <link href="docs.css" rel="stylesheet">
+  </head>
+  <body class="docs">
+    <div class="jumbotron">
+      <h1>Flex Tools</h1>
+      <p>Set of flexbox based layout class-helpers for HTML tags.</p>
+    </div>
+    <h1>Initializing</h1>
+    <p><code>f-box</code> enables flexbox. Outer container works as block.</p>
+    <p><code>f-align</code> enables flexbox. Outer container works as inline-block.</p>
+    <h1>Aligning</h1>
+    <p><code>f-align--Y-X</code> controls the align element. <code>Y</code> controls aligning at the vertical axis. <code>X</code> - controls the horisontal one.</p>
+    <p><strong>Example</strong></p>
+    <div class="example example--align">
+      <p><code>f-align--</code>
+        <select class="example__select">
+          <option value="1-1">1-1</option>
+          <option value="1-2">1-2</option>
+          <option value="1-3">1-3</option>
+          <option value="2-1">2-1</option>
+          <option value="2-2">2-2</option>
+          <option value="2-3">2-3</option>
+          <option value="3-1">3-1</option>
+          <option value="3-2">3-2</option>
+          <option value="3-3">3-3</option>
+          <option value="1-13">1-13</option>
+          <option value="2-13">2-13</option>
+          <option value="3-13">3-13</option>
+          <option value="13-1">13-1</option>
+          <option value="13-2">13-2</option>
+          <option value="13-3">13-3</option>
+          <option value="13-13">13-13</option>
+        </select>
+      </p>
+      <div class="example__list f-box f-align--1-1">
+        <div class="f-box f-align--2-2 example__unit">This is aligning example</div>
+        <div class="f-box f-align--2-2 example__unit">This is aligning example</div>
+        <div class="f-box f-align--2-2 example__unit">This is aligning example</div>
+      </div>
+    </div>
+    <h1>Grid</h1>
+    <p><code>f-grid--N</code> - where <code>N</code> equal of base columns amount</p>
+    <p>Grid controlled by settings values: </p>
+    <p><code>$grid-gutter</code> - gutter between columns</p>
+    <p><code>$grid-columns</code> - set column counts</p>
+    <p>By default we have 10px gutter and 12 column. Enjoy!</p>
+    <p><strong>Example</strong></p>
+    <div class="example example--grid">
+      <div class="example__list">
+                <div class="f-box f-gap--L">
+                  <div class="f-box f-align--2-2 f-gutter example__unit f-grid--1">Grid 1</div>
+                  <div class="f-box f-align--2-2 f-gutter example__unit f-grid--11">Grid 11</div>
+                </div>
+                <div class="f-box f-gap--L">
+                  <div class="f-box f-align--2-2 f-gutter example__unit f-grid--2">Grid 2</div>
+                  <div class="f-box f-align--2-2 f-gutter example__unit f-grid--10">Grid 10</div>
+                </div>
+                <div class="f-box f-gap--L">
+                  <div class="f-box f-align--2-2 f-gutter example__unit f-grid--3">Grid 3</div>
+                  <div class="f-box f-align--2-2 f-gutter example__unit f-grid--9">Grid 9</div>
+                </div>
+                <div class="f-box f-gap--L">
+                  <div class="f-box f-align--2-2 f-gutter example__unit f-grid--4">Grid 4</div>
+                  <div class="f-box f-align--2-2 f-gutter example__unit f-grid--8">Grid 8</div>
+                </div>
+                <div class="f-box f-gap--L">
+                  <div class="f-box f-align--2-2 f-gutter example__unit f-grid--5">Grid 5</div>
+                  <div class="f-box f-align--2-2 f-gutter example__unit f-grid--7">Grid 7</div>
+                </div>
+                <div class="f-box f-gap--L">
+                  <div class="f-box f-align--2-2 f-gutter example__unit f-grid--6">Grid 6</div>
+                  <div class="f-box f-align--2-2 f-gutter example__unit f-grid--6">Grid 6</div>
+                </div>
+                <div class="f-box f-gap--L">
+                  <div class="f-box f-align--2-2 f-gutter example__unit f-grid--7">Grid 7</div>
+                  <div class="f-box f-align--2-2 f-gutter example__unit f-grid--5">Grid 5</div>
+                </div>
+                <div class="f-box f-gap--L">
+                  <div class="f-box f-align--2-2 f-gutter example__unit f-grid--8">Grid 8</div>
+                  <div class="f-box f-align--2-2 f-gutter example__unit f-grid--4">Grid 4</div>
+                </div>
+                <div class="f-box f-gap--L">
+                  <div class="f-box f-align--2-2 f-gutter example__unit f-grid--9">Grid 9</div>
+                  <div class="f-box f-align--2-2 f-gutter example__unit f-grid--3">Grid 3</div>
+                </div>
+                <div class="f-box f-gap--L">
+                  <div class="f-box f-align--2-2 f-gutter example__unit f-grid--10">Grid 10</div>
+                  <div class="f-box f-align--2-2 f-gutter example__unit f-grid--2">Grid 2</div>
+                </div>
+                <div class="f-box f-gap--L">
+                  <div class="f-box f-align--2-2 f-gutter example__unit f-grid--11">Grid 11</div>
+                  <div class="f-box f-align--2-2 f-gutter example__unit f-grid--1">Grid 1</div>
+                </div>
+      </div>
+    </div>
+    <h1>Gap</h1>
+    <p>You can control gutters inside flexbox container. You can chose from one of 3 different gaps:</p>
+    <p>Gaps worked with grid or any other columns, even outside from flex container.</p>
+    <p><strong>Example</strong></p>
+    <div class="example example--gap">
+      <p><code>f-dir--</code>
+        <select class="example__select">
+          <option value="S">S</option>
+          <option value="M">M</option>
+          <option value="L">L</option>
+        </select>
+      </p>
+      <div class="example__list f-box f-gap--S">
+        <div class="f-box f-grid--4 f-align--2-2 example__unit">Column 1/3</div>
+        <div class="f-box f-grid--4 f-align--2-2 example__unit">Column 1/3</div>
+        <div class="f-box f-grid--4 f-align--2-2 example__unit">Column 1/3</div>
+      </div>
+      <div class="example__list f-box f-gap--S">
+        <div class="f-box f-grid--2 f-align--2-2 example__unit">Column 1/6</div>
+        <div class="f-box f-grid--2 f-align--2-2 example__unit">Column 1/6</div>
+        <div class="f-box f-grid--2 f-align--2-2 example__unit">Column 1/6</div>
+        <div class="f-box f-grid--2 f-align--2-2 example__unit">Column 1/6</div>
+        <div class="f-box f-grid--2 f-align--2-2 example__unit">Column 1/6</div>
+        <div class="f-box f-grid--2 f-align--2-2 example__unit">Column 1/6</div>
+      </div>
+    </div>
+    <h1>Filling</h1>
+    <p><code>f-fill</code> usefull when you need to fit all available space with some block. </p>
+    <h1>Direction</h1>
+    <p><code>f-dir--N</code> allows you to change direction of children elements inside box.</p>
+    <p><strong>Example</strong>
+      <div class="example example--dir">
+        <p><code>f-dir--</code>
+          <select class="example__select">
+            <option value="row">row</option>
+            <option value="col">col</option>
+            <option value="row-rvs">row-rvs</option>
+            <option value="col-rvs">col-rvs</option>
+          </select>
+        </p>
+        <div class="example__list f-box">
+          <div class="f-box f-align--2-2 example__unit">Box 1</div>
+          <div class="f-box f-align--2-2 example__unit">Box 2</div>
+          <div class="f-box f-align--2-2 example__unit">Box 3</div>
+        </div>
+      </div>
+    </p>
+    <h1>Options</h1>
+    <p><code>f-option--reverse</code> - change flexbox model from <code>row</code> to <code>column</code></p>
+    <p><code>f-option--nogap</code> - disable gaps for current item.</p>
+    <h1>Limitations </h1>
+    <p>Keep in mind, that Flexbox implementation has lots of caveats and bugs.</p>
+    <p>See full list <strong><a href="https://github.com/philipwalton/flexbugs">here</a></strong></p>
+    <p>Perfect for </p>
+    <ul>
+      <li>Sketches and prototypes</li>
+      <li>Admin or developer panels</li>
+      <li>Projects on Edge</li>
+    </ul>
+    <p>Don't recommend for:</p>
+    <ul>
+      <li>Support for IE 9 and lower</li>
+      <li>If you don't want to handle Flexbox bugs</li>
+    </ul>
+    <h1>TODO</h1>
+    <ul>
+      <li>Generate code with custom parameters</li>
+      <li>Generate with modernizr support</li>
+      <li>Custom layout interactive builder</li>
+      <li>More detailed docs :)</li>
+    </ul>
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="docs.js"></script>
+  </body>
+</html>

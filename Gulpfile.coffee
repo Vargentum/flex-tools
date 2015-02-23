@@ -2,6 +2,7 @@ gulp = require('gulp')
 plugins = require('gulp-load-plugins')()
 connect = require('gulp-connect') # don't work from plugins.connect
 minifyCSS = require('gulp-minify-css')
+nib = require('nib')
 
 path =
   dist: 'dist'
@@ -23,32 +24,43 @@ server =
 
 gulp.task 'jade:docs', ->
   gulp.src(path.docs.jade)
-    .pipe(plugins.jade())
+    .pipe(plugins.plumber())
+    .pipe(plugins.jade(
+      pretty: yes
+    ))
     .pipe(plugins.rename('index.html'))
     .pipe(gulp.dest(path.docs.base))
     .pipe(connect.reload())
 
 gulp.task 'coffee:docs', ->
   gulp.src(path.docs.coffee)
+    .pipe(plugins.plumber())
     .pipe(plugins.coffee())
     .pipe(gulp.dest(path.docs.base))
     .pipe(connect.reload())
 
 gulp.task 'styles:docs', ->
   gulp.src(path.docs.styles)
-    .pipe(plugins.stylus())
+    .pipe(plugins.plumber())
+    .pipe(plugins.stylus(
+      use: nib()
+    ))
     .pipe(gulp.dest(path.docs.base))
     .pipe(connect.reload())
 
 gulp.task 'flex-tools', ->
   gulp.src(path.flexTools)
-    .pipe(plugins.stylus())
+    .pipe(plugins.plumber())
+    .pipe(plugins.stylus(
+      use: nib()
+    ))
     .pipe(plugins.autoprefixer())
     .pipe(gulp.dest(path.dist))
-    .pipe(plugins.rename('flex-tools.min.css'))
-    .pipe(minifyCSS())
-    .pipe(gulp.dest(path.dist))
+    .pipe(plugins.copy(path.docs.base,
+      prefix: 2
+    ))
     .pipe(connect.reload())
+
 
 gulp.task 'server', ->
   connect.server(
@@ -78,7 +90,7 @@ gulp.task 'watch', ->
 
 
 gulp.task 'default', [
-  'clean'
+  # 'clean'
   'flex-tools'
   'jade:docs'
   'styles:docs'
