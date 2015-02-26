@@ -1,5 +1,5 @@
 (function() {
-  var Example,
+  var Example, ExampleForFill,
     bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
   Example = (function() {
@@ -33,5 +33,42 @@
   new Example($('.example--dir'), 'dir');
 
   new Example($('.example--gap'), 'gap');
+
+  ExampleForFill = (function() {
+    function ExampleForFill() {
+      this.init = bind(this.init, this);
+      this.updSidebarWidth = bind(this.updSidebarWidth, this);
+      this.setSidebarWidth = bind(this.setSidebarWidth, this);
+      this.el = $('.example--fill');
+      this.range = this.el.find('.example__input');
+      this.sidebar = this.el.find('.example__unit--sidebar');
+      this.init();
+    }
+
+    ExampleForFill.prototype.setSidebarWidth = function() {
+      return this.sidebar.css({
+        width: this.range.val(),
+        height: this.range.val() / 5
+      });
+    };
+
+    ExampleForFill.prototype.updSidebarWidth = function() {
+      return this.range.change((function(_this) {
+        return function() {
+          return _this.setSidebarWidth();
+        };
+      })(this));
+    };
+
+    ExampleForFill.prototype.init = function() {
+      this.setSidebarWidth();
+      return this.updSidebarWidth();
+    };
+
+    return ExampleForFill;
+
+  })();
+
+  new ExampleForFill();
 
 }).call(this);

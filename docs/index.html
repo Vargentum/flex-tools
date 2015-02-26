@@ -49,6 +49,16 @@
         <div class="f-box f-align--2-2 example__unit">This is aligning example</div>
       </div>
     </div>
+    <h1>Filling</h1>
+    <p><code>f-fill</code> usefull when you need to fit all available space with some block. It can be applied both for horisontal and vertical layouts.</p>
+    <p><strong>Example</strong></p>
+    <div class="example example--fill">
+      <input type="range" defaultValue="240" min="0" max="960" step="120" class="example__input">
+      <div class="example__list f-box">
+        <div class="example__unit f-box f-align--2-2 example__unit--sidebar">Fixed sizes sidebar</div>
+        <div class="example__unit f-box f-align--2-2 f-fill">This block fill all available space</div>
+      </div>
+    </div>
     <h1>Grid</h1>
     <p><code>f-grid--N</code> - where <code>N</code> equal of base columns amount</p>
     <p>Grid controlled by settings values: </p>
@@ -106,10 +116,16 @@
     </div>
     <h1>Gap</h1>
     <p>You can control gutters inside flexbox container. You can chose from one of 3 different gaps:</p>
+    <ul>
+      <li>Small </li>
+      <li>Middle</li>
+      <li>Large</li>
+    </ul>
     <p>Gaps worked with grid or any other columns, even outside from flex container.</p>
+    <p>Pay attention, that gaps realized as margins, so you don't need to blame your code with wrappers, as in padding-based grid systems.</p>
     <p><strong>Example</strong></p>
     <div class="example example--gap">
-      <p><code>f-dir--</code>
+      <p><code>f-gap--</code>
         <select class="example__select">
           <option value="S">S</option>
           <option value="M">M</option>
@@ -130,8 +146,6 @@
         <div class="f-box f-grid--2 f-align--2-2 example__unit">Column 1/6</div>
       </div>
     </div>
-    <h1>Filling</h1>
-    <p><code>f-fill</code> usefull when you need to fit all available space with some block. </p>
     <h1>Direction</h1>
     <p><code>f-dir--N</code> allows you to change direction of children elements inside box.</p>
     <p><strong>Example</strong>
@@ -152,11 +166,52 @@
       </div>
     </p>
     <h1>Options</h1>
-    <p><code>f-option--reverse</code> - change flexbox model from <code>row</code> to <code>column</code></p>
     <p><code>f-option--nogap</code> - disable gaps for current item.</p>
+    <h1>Complex demo layout</h1>
+    <p>Use tools like <b>Firebug</b> or <b>Chrome Developers Console</b> to inspect markup.</p>
+    <h4>Layout with fluid central column and sidebars with equal height</h4>
+    <div class="f-box f-align--13-1 f-gap--L demo">
+      <div class="f-grid--3 demo__unit">Sidebar</div>
+      <div class="f-fill demo__unit"> 
+        <h4>Main column</h4>
+        <p>Competently morph resource-leveling infomediaries without ubiquitous initiatives. Collaboratively maximize cooperative users with bricks-and-clicks services. Dynamically myocardinate prospective infomediaries through interdependent customer service. Monotonectally re-engineer reliable content vis-a-vis multidisciplinary total linkage. Objectively predominate highly efficient solutions for focused alignments.</p>
+        <p>Credibly cultivate impactful convergence rather than high standards in human capital. Rapidiously evisculate backward-compatible niches before highly efficient.</p>
+      </div>
+      <div class="f-grid--3 demo__unit">Sidebar</div>
+    </div>
+    <h4>More complicated layout</h4>
+    <div class="f-box f-align--13-1 f-gap--M demo">
+      <div class="f-box f-dir--col f-grid--2 demo__unit">
+        <h5>Sidebar</h5>
+        <div class="f-fill f-box f-align--2-2 demo__unit">Some content. Fill all available space</div>
+      </div>
+      <div class="f-fill demo__unit"> 
+        <h4>Main column</h4>
+        <p>Competently morph resource-leveling infomediaries without ubiquitous initiatives. Collaboratively maximize cooperative users with bricks-and-clicks services. Dynamically myocardinate prospective infomediaries through interdependent customer service. Monotonectally re-engineer reliable content vis-a-vis multidisciplinary total linkage. Objectively predominate highly efficient solutions for focused alignments.</p>
+        <p>Credibly cultivate impactful convergence rather than high standards in human capital. Rapidiously evisculate backward-compatible niches before highly efficient.</p>
+      </div>
+      <div class="f-box f-dir--col f-grid--4 demo__unit">
+        <div class="f-fill f-box f-align--2-2 demo__unit">Some content. Fill all available space</div>
+        <h5>Sidebar</h5>
+      </div>
+    </div>
+    <h4>Gallery</h4>
+    <div class="f-box f-align--2-2 f-gap--M f-option--wrap f-option--nogap demo demo--gallery">
+      <div class="f-box f-grid--3 f-align--2-2 demo__unit">Gallery unit</div>
+      <div class="f-box f-grid--3 f-align--2-2 demo__unit">Gallery unit</div>
+      <div class="f-box f-grid--3 f-align--2-2 demo__unit">Gallery unit</div>
+      <div class="f-box f-grid--3 f-align--2-2 demo__unit">Gallery unit</div>
+      <div class="f-box f-grid--3 f-align--2-2 demo__unit">Gallery unit</div>
+      <div class="f-box f-grid--3 f-align--2-2 demo__unit">Gallery unit</div>
+      <div class="f-box f-grid--3 f-align--2-2 demo__unit">Gallery unit</div>
+      <div class="f-box f-grid--3 f-align--2-2 demo__unit">Gallery unit</div>
+      <div class="f-box f-grid--3 f-align--2-2 demo__unit">Gallery unit</div>
+      <div class="f-box f-grid--3 f-align--2-2 demo__unit">Gallery unit</div>
+      <div class="f-box f-grid--3 f-align--2-2 demo__unit">Gallery unit</div>
+    </div>
     <h1>Limitations </h1>
-    <p>Keep in mind, that Flexbox implementation has lots of caveats and bugs.</p>
-    <p>See full list <strong><a href="https://github.com/philipwalton/flexbugs">here</a></strong></p>
+    <p>Requre <a href="http://caniuse.com/#search=flexbox">flexbox</a> and <a href="http://caniuse.com/#search=calc">calc</a> support.</p>
+    <p>Keep in mind, that current Flexbox implementation has lots of caveats and bugs. Especially in IE.</p>
     <p>Perfect for </p>
     <ul>
       <li>Sketches and prototypes</li>
@@ -167,6 +222,11 @@
     <ul>
       <li>Support for IE 9 and lower</li>
       <li>If you don't want to handle Flexbox bugs</li>
+    </ul>
+    <h1>Usefull links</h1>
+    <ul>
+      <li>Detailed <a href="https://github.com/philipwalton/flexbugs">Flexbox Cheatsheet</a></li>
+      <li>Most of flexbox bugs described at Philip Walton's <a href="https://github.com/philipwalton/flexbugs">FlexBugs project.</a></li>
     </ul>
     <h1>TODO</h1>
     <ul>

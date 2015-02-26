@@ -1,6 +1,12 @@
 .docs {
   width: 960px;
   margin: auto;
+/*-------------------------------------
+    Rewrite bootstrap classes
+  --------------------------------------*/
+}
+.docs .jumbotron {
+  text-align: center;
 }
 .example__unit {
   width: 150px;
@@ -27,16 +33,35 @@
   margin: 10px;
 }
 .example--gap .example__list {
-  height: 300px;
-  margin-bottom: 10px;
-}
-.example--gap .example__list {
   height: 50px;
 }
 .example--grid .example__unit {
   height: 50px;
   margin-bottom: 20px;
 }
-.example .jumbotron {
-  text-align: center;
+.example--fill .example__list {
+  border: 1px solid #565656;
+  padding: 10px;
+}
+.example--fill .example__input {
+  margin-bottom: 10px;
+}
+/*-------------------------------------
+  Demo styles
+--------------------------------------*/
+.demo {
+  margin-bottom: 20px;
+}
+.demo__unit {
+  border: 1px solid #565656;
+  background-color: #cecece;
+  padding: 10px;
+}
+.demo--gallery {
+  border: 1px solid #565656;
+  padding: 10px;
+}
+.demo--gallery .demo__unit {
+  height: 100px;
+  margin-bottom: 10px;
 }
