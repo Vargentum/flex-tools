@@ -25,14 +25,16 @@ html.no-js(lang='en')
       h1 Flex Tools
       p Set of flexbox based layout class-helpers for HTML tags.
 
+
     
     h1 Initializing
     p #[code f-box] enables flexbox. Outer container works as block.
     p #[code f-align] enables flexbox. Outer container works as inline-block.
 
+
+
     h1 Aligning
     p #[code f-align--Y-X] controls the align element. #[code Y] controls aligning at the vertical axis. #[code X] - controls the horisontal one.
-
     p #[strong Example]
     .example.example--align
       p #[code f-align--]
@@ -47,14 +49,24 @@ html.no-js(lang='en')
           - i ++
 
 
+
+    h1 Filling
+    p #[code f-fill] usefull when you need to fit all available space with some block. 
+      | It can be applied both for horisontal and vertical layouts.
+    p #[strong Example]
+    .example.example--fill
+      input.example__input(type="range", defaultValue="240", min="0", max="960", step="120")
+      .example__list.f-box
+        .example__unit.f-box.f-align--2-2.example__unit--sidebar Fixed sizes sidebar
+        .example__unit.f-box.f-align--2-2.f-fill This block fill all available space
+
+
+
     h1 Grid
-
     p #[code f-grid--N] - where #[code N] equal of base columns amount
-
     p Grid controlled by settings values: 
     p #[code $grid-gutter] - gutter between columns
     p #[code $grid-columns] - set column counts
-
     p By default we have 10px gutter and 12 column. Enjoy!
     p #[strong Example]
     .example.example--grid
@@ -68,12 +80,18 @@ html.no-js(lang='en')
         +grid(1,12)
 
 
+
     h1 Gap
     p You can control gutters inside flexbox container. You can chose from one of 3 different gaps:
+    ul
+      li Small 
+      li Middle
+      li Large
     p Gaps worked with grid or any other columns, even outside from flex container.
+    p Pay attention, that gaps realized as margins, so you don't need to blame your code with wrappers, as in padding-based grid systems.
     p #[strong Example]
     .example.example--gap
-      p #[code f-dir--]
+      p #[code f-gap--]
         select.example__select
           each val in ['S', 'M', 'L']
             option(value='#{val}')= val
@@ -88,10 +106,6 @@ html.no-js(lang='en')
         while i <= 6
           .f-box.f-grid--2.f-align--2-2.example__unit Column 1/6
           - i++
-
-
-    h1 Filling
-    p #[code f-fill] usefull when you need to fit all available space with some block. 
 
 
     h1 Direction
@@ -111,26 +125,61 @@ html.no-js(lang='en')
 
 
     h1 Options
-    p #[code f-option--reverse] - change flexbox model from #[code row] to #[code column]
     p #[code f-option--nogap] - disable gaps for current item.
 
 
-    h1 Limitations 
-    p Keep in mind, that Flexbox implementation has lots of caveats and bugs.
-    p See full list 
-      strong #[a(href='https://github.com/philipwalton/flexbugs') here]
 
+    h1 Complex demo layout
+    p Use tools like #[b Firebug] or #[b Chrome Developers Console] to inspect markup.
+    h4 Layout with fluid central column and sidebars with equal height
+    .f-box.f-align--13-1.f-gap--L.demo
+      .f-grid--3.demo__unit Sidebar
+      .f-fill.demo__unit 
+        h4 Main column
+        p Competently morph resource-leveling infomediaries without ubiquitous initiatives. Collaboratively maximize cooperative users with bricks-and-clicks services. Dynamically myocardinate prospective infomediaries through interdependent customer service. Monotonectally re-engineer reliable content vis-a-vis multidisciplinary total linkage. Objectively predominate highly efficient solutions for focused alignments.
+        p Credibly cultivate impactful convergence rather than high standards in human capital. Rapidiously evisculate backward-compatible niches before highly efficient.
+      .f-grid--3.demo__unit Sidebar
+
+    h4 More complicated layout
+    .f-box.f-align--13-1.f-gap--M.demo
+      .f-box.f-dir--col.f-grid--2.demo__unit
+        h5 Sidebar
+        .f-fill.f-box.f-align--2-2.demo__unit Some content. Fill all available space
+      .f-fill.demo__unit 
+        h4 Main column
+        p Competently morph resource-leveling infomediaries without ubiquitous initiatives. Collaboratively maximize cooperative users with bricks-and-clicks services. Dynamically myocardinate prospective infomediaries through interdependent customer service. Monotonectally re-engineer reliable content vis-a-vis multidisciplinary total linkage. Objectively predominate highly efficient solutions for focused alignments.
+        p Credibly cultivate impactful convergence rather than high standards in human capital. Rapidiously evisculate backward-compatible niches before highly efficient.
+      .f-box.f-dir--col.f-grid--4.demo__unit
+        .f-fill.f-box.f-align--2-2.demo__unit Some content. Fill all available space
+        h5 Sidebar
+
+    h4 Gallery
+    .f-box.f-align--2-2.f-gap--M.f-option--wrap.f-option--nogap.demo.demo--gallery
+      - i = 0
+      while i < 11
+        .f-box.f-grid--3.f-align--2-2.demo__unit Gallery unit
+        - i++
+
+
+
+    h1 Limitations 
+    p Requre #[a(href="http://caniuse.com/#search=flexbox") flexbox] and #[a(href="http://caniuse.com/#search=calc") calc] support.
+    p Keep in mind, that current Flexbox implementation has lots of caveats and bugs. Especially in IE.
     p Perfect for 
     ul
       li Sketches and prototypes
       li Admin or developer panels
       li Projects on Edge
-
     p Don't recommend for:
     ul
       li Support for IE 9 and lower
       li If you don't want to handle Flexbox bugs
 
+
+    h1 Usefull links
+    ul
+      li Detailed #[a(href='https://github.com/philipwalton/flexbugs') Flexbox Cheatsheet]
+      li Most of flexbox bugs described at Philip Walton's #[a(href='https://github.com/philipwalton/flexbugs') FlexBugs project.]
 
     h1 TODO
     ul
