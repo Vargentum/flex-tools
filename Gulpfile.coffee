@@ -1,8 +1,7 @@
 gulp = require('gulp')
+nib = require('nib')
 plugins = require('gulp-load-plugins')()
 connect = require('gulp-connect') # don't work from plugins.connect
-minifyCSS = require('gulp-minify-css')
-nib = require('nib')
 
 path =
   dist: 'dist'
@@ -55,11 +54,12 @@ gulp.task 'flex-tools', ->
       use: nib()
     ))
     .pipe(plugins.autoprefixer())
-    .pipe(gulp.dest(path.dist))
-    .pipe(plugins.copy(path.docs.base,
-      prefix: 2
-    ))
     .pipe(connect.reload())
+    .pipe(gulp.dest(path.dist))
+    .pipe(plugins.minifyCss(
+      suffix: '.min'
+    ))
+    .pipe(gulp.dest(path.dist))
 
 
 gulp.task 'server', ->
