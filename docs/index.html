@@ -5,6 +5,7 @@
     <title>Flex Tools Docs</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css" rel="stylesheet">
@@ -17,11 +18,36 @@
       <p>Set of flexbox based layout class-helpers for HTML tags.</p>
     </div>
     <h1>Initializing</h1>
-    <p><code>f-box</code> enables flexbox. Outer container works as block.</p>
-    <p><code>f-align</code> enables flexbox. Outer container works as inline-block.</p>
+    <p><code>f-box</code> enables flexbox. Outer container works as 
+      <u>block</u> element.
+    </p>
+    <p><code>f-line</code> enables flexbox. Outer container works as 
+      <u>inline-block</u>.
+    </p>
+    <h1>Direction</h1>
+    <p>By default, children inside flexbox container placed in single row.</p>
+    <p><code>f-dir--col</code> allows you to make this flow columned.</p>
+    <p><code>f-dir--row</code> restores default behavior. </p>
+    <p><strong>Example</strong>
+      <div class="example example--dir">
+        <p><code>f-dir--</code>
+          <select class="example__select">
+            <option value="row">row</option>
+            <option value="col">col</option>
+          </select>
+        </p>
+        <div class="example__list f-box">
+          <div class="f-box f-align--2-2 example__unit">Box 1</div>
+          <div class="f-box f-align--2-2 example__unit">Box 2</div>
+          <div class="f-box f-align--2-2 example__unit">Box 3</div>
+        </div>
+      </div>
+    </p>
     <h1>Aligning</h1>
     <p><code>f-align--Y-X</code> controls the align element. <code>Y</code> controls aligning at the vertical axis. <code>X</code> - controls the horisontal one.</p>
-    <p><strong>Example</strong></p>
+    <p>
+      <u>When you change direction of flexbox container to column version, pay attention, that aligning controllers will be reversed.    </u>
+    </p>
     <div class="example example--align">
       <p><code>f-align--</code>
         <select class="example__select">
@@ -43,10 +69,17 @@
           <option value="13-13">13-13</option>
         </select>
       </p>
+      <p>Aligning inside the row (<code>f-dir--row</code>) flexbox direction. <b>Default behavior</b></p>
       <div class="example__list f-box f-align--1-1">
-        <div class="f-box f-align--2-2 example__unit">This is aligning example</div>
-        <div class="f-box f-align--2-2 example__unit">This is aligning example</div>
-        <div class="f-box f-align--2-2 example__unit">This is aligning example</div>
+        <div class="example__unit">Row aligning example</div>
+        <div class="example__unit">Row aligning example</div>
+        <div class="example__unit">Row aligning example</div>
+      </div>
+      <p>Aligning inside the column (<code>f-dir--col</code>) flexbox direction.</p>
+      <div class="example__list example__list--col f-box f-dir--col f-align--1-1">
+        <div class="example__unit example__unit--col">Column aligning example</div>
+        <div class="example__unit example__unit--col">Column aligning example</div>
+        <div class="example__unit example__unit--col">Column aligning example</div>
       </div>
     </div>
     <h1>Filling</h1>
@@ -117,9 +150,9 @@
     <h1>Gap</h1>
     <p>You can control gutters inside flexbox container. You can chose from one of 3 different gaps:</p>
     <ul>
-      <li>Small </li>
-      <li>Middle</li>
-      <li>Large</li>
+      <li>Small  (5px) </li>
+      <li>Middle (10px)</li>
+      <li>Large  (20px)</li>
     </ul>
     <p>Gaps worked with grid or any other columns, even outside from flex container.</p>
     <p>Pay attention, that gaps realized as margins, so you don't need to blame your code with wrappers, as in padding-based grid systems.</p>
@@ -146,27 +179,9 @@
         <div class="f-box f-grid--2 f-align--2-2 example__unit">Column 1/6</div>
       </div>
     </div>
-    <h1>Direction</h1>
-    <p><code>f-dir--N</code> allows you to change direction of children elements inside box.</p>
-    <p><strong>Example</strong>
-      <div class="example example--dir">
-        <p><code>f-dir--</code>
-          <select class="example__select">
-            <option value="row">row</option>
-            <option value="col">col</option>
-            <option value="row-rvs">row-rvs</option>
-            <option value="col-rvs">col-rvs</option>
-          </select>
-        </p>
-        <div class="example__list f-box">
-          <div class="f-box f-align--2-2 example__unit">Box 1</div>
-          <div class="f-box f-align--2-2 example__unit">Box 2</div>
-          <div class="f-box f-align--2-2 example__unit">Box 3</div>
-        </div>
-      </div>
-    </p>
     <h1>Options</h1>
     <p><code>f-option--nogap</code> - disable gaps for current item.</p>
+    <p><code>f-option--wrap</code> -  allows multiple rows for flex children.</p>
     <h1>Complex demo layout</h1>
     <p>Use tools like <b>Firebug</b> or <b>Chrome Developers Console</b> to inspect markup.</p>
     <h4>Layout with fluid central column and sidebars with equal height</h4>

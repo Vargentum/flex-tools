@@ -3,7 +3,9 @@
 $border-c = #565656
 
 .docs  
-  width: 960px 
+  max-width: 980px 
+  min-width: 320px
+  padding 10px
   margin auto
   
 
@@ -29,18 +31,27 @@ $border-c = #565656
 
   &--align  &__list
     border: $border-c
-    height 300px
+    height 200px
     padding 10px
+    margin-bottom 10px
+    
+    &--col
+      height 400px
+
     
   &--align  &__unit
-    min-height 150px
+    padding: 25px
+    width auto
     margin: 10px
+    
+    &--col
+      padding 25px
+      
 
 
 
   &--dir  &__list
     border: $border-c
-    min-height 300px
     padding 10px
     
   &--dir  &__unit

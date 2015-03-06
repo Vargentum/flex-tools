@@ -1,5 +1,7 @@
 .docs {
-  width: 960px;
+  max-width: 980px;
+  min-width: 320px;
+  padding: 10px;
   margin: auto;
 /*-------------------------------------
     Rewrite bootstrap classes
@@ -16,16 +18,23 @@
 }
 .example--align .example__list {
   border: 1px solid #565656;
-  height: 300px;
+  height: 200px;
   padding: 10px;
+  margin-bottom: 10px;
+}
+.example--align .example__list--col {
+  height: 400px;
 }
 .example--align .example__unit {
-  min-height: 150px;
+  padding: 25px;
+  width: auto;
   margin: 10px;
+}
+.example--align .example__unit--col {
+  padding: 25px;
 }
 .example--dir .example__list {
   border: 1px solid #565656;
-  min-height: 300px;
   padding: 10px;
 }
 .example--dir .example__unit {

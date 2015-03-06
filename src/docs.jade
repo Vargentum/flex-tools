@@ -7,6 +7,7 @@ html.no-js(lang='en')
     title Flex Tools Docs
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name="viewport", content="width=device-width, initial-scale=1")
     
     script(src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js")
 
@@ -32,24 +33,52 @@ html.no-js(lang='en')
 
     
     h1 Initializing
-    p #[code f-box] enables flexbox. Outer container works as block.
-    p #[code f-align] enables flexbox. Outer container works as inline-block.
+    p #[code f-box] enables flexbox. Outer container works as #[u block] element.
+    p #[code f-line] enables flexbox. Outer container works as #[u inline-block].
 
+    
+    h1 Direction
+    p By default, children inside flexbox container placed in single row.
+    p #[code f-dir--col] allows you to make this flow columned.
+    p #[code f-dir--row] restores default behavior. 
+    p #[strong Example]
+      .example.example--dir
+        p #[code f-dir--]
+          select.example__select
+            //- each val in ['row', 'col', 'row-rvs', 'col-rvs']  disable reversed options
+            each val in ['row', 'col']
+              option(value='#{val}')= val
+
+        .example__list.f-box
+          - i = 1
+          while i <= 3
+            .f-box.f-align--2-2.example__unit Box #{i}
+            - i ++
 
 
     h1 Aligning
     p #[code f-align--Y-X] controls the align element. #[code Y] controls aligning at the vertical axis. #[code X] - controls the horisontal one.
-    p #[strong Example]
+    p
+      u When you change direction of flexbox container to column version, pay attention, that aligning controllers will be reversed.    
+
     .example.example--align
       p #[code f-align--]
         select.example__select
           each val in ['1-1', '1-2', '1-3', '2-1', '2-2', '2-3', '3-1', '3-2', '3-3', '1-13', '2-13', '3-13', '13-1', '13-2', '13-3', '13-13']
             option(value='#{val}')= val
 
+      p Aligning inside the row (#[code f-dir--row]) flexbox direction. #[b Default behavior]
       .example__list.f-box.f-align--1-1
         - i = 0
         while i < 3
-          .f-box.f-align--2-2.example__unit This is aligning example
+          .example__unit Row aligning example
+          - i ++
+      
+      p Aligning inside the column (#[code f-dir--col]) flexbox direction.
+      .example__list.example__list--col.f-box.f-dir--col.f-align--1-1
+        - i = 0
+        while i < 3
+          .example__unit.example__unit--col Column aligning example
           - i ++
 
 
@@ -88,9 +117,9 @@ html.no-js(lang='en')
     h1 Gap
     p You can control gutters inside flexbox container. You can chose from one of 3 different gaps:
     ul
-      li Small 
-      li Middle
-      li Large
+      li Small  (5px) 
+      li Middle (10px)
+      li Large  (20px)
     p Gaps worked with grid or any other columns, even outside from flex container.
     p Pay attention, that gaps realized as margins, so you don't need to blame your code with wrappers, as in padding-based grid systems.
     p #[strong Example]
@@ -112,24 +141,9 @@ html.no-js(lang='en')
           - i++
 
 
-    h1 Direction
-    p #[code f-dir--N] allows you to change direction of children elements inside box.
-    p #[strong Example]
-      .example.example--dir
-        p #[code f-dir--]
-          select.example__select
-            each val in ['row', 'col', 'row-rvs', 'col-rvs']
-              option(value='#{val}')= val
-
-        .example__list.f-box
-          - i = 1
-          while i <= 3
-            .f-box.f-align--2-2.example__unit Box #{i}
-            - i ++
-
-
     h1 Options
     p #[code f-option--nogap] - disable gaps for current item.
+    p #[code f-option--wrap] -  allows multiple rows for flex children.
 
 
 
